@@ -22,7 +22,7 @@ DATABASES = {
 }
 
 ALLOWED_HOSTS = [
-    "localhost",
+    "*",
 ]
 
 # Local time zone for this installation. Choices can be found here:
