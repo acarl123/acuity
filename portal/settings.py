@@ -8,18 +8,18 @@ BASE_DIR = PACKAGE_ROOT
 DEBUG = True
 
 # Dev
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": "dev.db",
-#     }
-# }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "dev.db",
+    }
+}
 
 # Prod
-import dj_database_url
-DATABASES = {
-    "default": dj_database_url.config()
-}
+# import dj_database_url
+# DATABASES = {
+#     "default": dj_database_url.config()
+# }
 
 ALLOWED_HOSTS = [
     "*",
@@ -73,6 +73,7 @@ STATIC_URL = "/site_media/static/"
 # Additional locations of static files
 STATICFILES_DIRS = [
     os.path.join(PROJECT_ROOT, "static", "dist"),
+    os.path.join(PROJECT_ROOT, "core", "templates"),
 ]
 
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
@@ -92,6 +93,7 @@ TEMPLATES = [
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
             os.path.join(PACKAGE_ROOT, "templates"),
+            os.path.join(PROJECT_ROOT, "core", "templates", "production"),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
