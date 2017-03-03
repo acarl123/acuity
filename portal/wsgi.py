@@ -14,8 +14,8 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "portal.settings")
 
 # Dev
-application = get_wsgi_application()
+# application = get_wsgi_application()
 
 # Prod
-# from dj_static import Cling, MediaCling
-# application = Cling(MediaCling(get_wsgi_application()))
+from dj_static import Cling, MediaCling
+application = Cling(MediaCling(get_wsgi_application()))
